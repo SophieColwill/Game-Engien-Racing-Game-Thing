@@ -3,3 +3,6 @@ The state machine implementation in my project is, while unconventional, is impl
 
 # Observer
 The observer methods used within the project, I think is a very good use of it. While watching a video of the copied game, I noticed that multiple things used a tick speed. So I thought that, if I wanted to make such trackers modular so that I don't need to worry about hard coding them into my player in case of future changes, I could add them to the player script as Observers to make it more organised. So, one observer changes the fuel amount (Displayed by the orange / blue bar on the bottom right side) and another observer handles seconds and minutes (The text displayed at the top right). When the player runs out of fuel, the build closes, same with pressing escape.
+
+# Reflection
+I think that, overall, I can see many ways to implement these concepts going forward. In fact, these concepts help me so well that I can see uses for them in a project already. Such as Observer being used for Buffs and Debuffs a player might get from all types of different sources, and State Machine being used to help AI and changing things based of story progression.
