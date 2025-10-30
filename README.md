@@ -6,3 +6,5 @@ The observer methods used within the project, I think is a very good use of it. 
 
 # Reflection
 I think that, overall, I can see many ways to implement these concepts going forward. In fact, these concepts help me so well that I can see uses for them in a project already. Such as Observer being used for Buffs and Debuffs a player might get from all types of different sources, and State Machine being used to help AI and changing things based of story progression.
+
+<img width="699" height="389" alt="Screenshot 2025-10-30 181719" src="https://github.com/user-attachments/assets/8022b2f5-ef45-4265-9937-5d6df91a7584" />
