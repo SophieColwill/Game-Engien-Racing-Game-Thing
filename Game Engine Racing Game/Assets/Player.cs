@@ -45,6 +45,10 @@ public class Player : Subject
                 currentPath = 1;
             }
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 
 
         if (currentPath == 1)
