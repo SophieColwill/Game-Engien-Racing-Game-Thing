@@ -4,7 +4,10 @@ The state machine implementation in my project is, while unconventional, is impl
 # Observer
 The observer methods used within the project, I think is a very good use of it. While watching a video of the copied game, I noticed that multiple things used a tick speed. So I thought that, if I wanted to make such trackers modular so that I don't need to worry about hard coding them into my player in case of future changes, I could add them to the player script as Observers to make it more organised. So, one observer changes the fuel amount (Displayed by the orange / blue bar on the bottom right side) and another observer handles seconds and minutes (The text displayed at the top right). When the player runs out of fuel, the build closes, same with pressing escape.
 
-# Reflection
-I think that, overall, I can see many ways to implement these concepts going forward. In fact, these concepts help me so well that I can see uses for them in a project already. Such as Observer being used for Buffs and Debuffs a player might get from all types of different sources, and State Machine being used to help AI and changing things based of story progression.
+# Object Pooling
+I used object pooling on all the enemy cars as they would need to be spawned and despawned periodically, specifically despawning when ran into or off the screen. I implemented it by adding it to the script of each state machine, but only the collision code into the "handle" function. This way each road section could handle it's own cars, and handle it's own collisions only when the player is actively on that segment of the road. It works by first spawning 3 cars per lane then making them invisible imidiatly. After a random interval of time, it will make one of them visible and move it to the top of the lane off screen. Once activated, it will start to move at a constant rate down until off screen, and once off screen it will turn invisible and stop moving down, awaiting to be called again.
+
+# Dirty Flag
+I used the Dirty Flag method in the fuel since it is the only changing variable. Whenever fuel changes, whether on a car collision or fuel tick, it will call the CarFuel variable. That variable will then change the _carFuel variable and set the object to "dirty". Once dirty, in update, it will then set the value of the fuel slider on the bottom right hand side of the screen to the current car fuel.
 
 <img width="699" height="389" alt="Screenshot 2025-10-30 181719" src="https://github.com/user-attachments/assets/8022b2f5-ef45-4265-9937-5d6df91a7584" />
