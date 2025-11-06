@@ -266,10 +266,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -650,6 +650,7 @@ MonoBehaviour:
   Path3: {fileID: 806421323}
   Fuel: {fileID: 1948966097}
   TimeCounter: {fileID: 920484937}
+  EnemyCar: {fileID: 2718644024619443338, guid: 75ef6cb2f836e3549b66759c4ac45e39, type: 3}
 --- !u!114 &806421323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -662,6 +663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c0d685618d54fd4a9dcfd26e40dac80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyCar: {fileID: 2718644024619443338, guid: 75ef6cb2f836e3549b66759c4ac45e39, type: 3}
 --- !u!114 &806421324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,6 +676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 241e98b202c038c428537f4b58e6b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyCar: {fileID: 2718644024619443338, guid: 75ef6cb2f836e3549b66759c4ac45e39, type: 3}
 --- !u!114 &806421325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,6 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcbbabecb608a1440b0d7b46f8f90f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyCar: {fileID: 2718644024619443338, guid: 75ef6cb2f836e3549b66759c4ac45e39, type: 3}
 --- !u!1 &920484935
 GameObject:
   m_ObjectHideFlags: 0

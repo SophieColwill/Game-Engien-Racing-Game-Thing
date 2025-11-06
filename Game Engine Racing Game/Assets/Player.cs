@@ -4,20 +4,40 @@ using UnityEngine.UI;
 
 public class Player : Subject
 {
+    public static Player instance;
+
     public Path1State Path1;
     public Path2State Path2;
     public Path3State Path3;
     int currentPath = 2;
 
-    public static float CarFuel, Seconds;
-    public static int Minutes;
+    public float CarFuel
+    {
+        get { return _carFuel; }
+        set
+        {
+            if (_carFuel != value)
+            {
+                _carFuel = value;
+                _isDirty = true;
+            }
+        }
+    }
+    float _carFuel;
+    public float Seconds;
+    public int Minutes;
 
     public Slider Fuel;
     public TMP_Text TimeCounter;
 
+    public GameObject EnemyCar;
+
+    bool _isDirty = true;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        instance = this;
         CarFuel = 50;
         Attach(gameObject.AddComponent<Fuel>());
         Attach(gameObject.AddComponent <TimeTicker>());
@@ -27,6 +47,11 @@ public class Player : Subject
     // Update is called once per frame
     void Update()
     {
+        if (_isDirty)
+        {
+            Fuel.value = CarFuel;
+        }
+
         NotifyObservers();
 
         if (Input.GetKeyDown(KeyCode.D))
@@ -65,7 +90,6 @@ public class Player : Subject
         }
 
         TimeCounter.text = Minutes.ToString() + ":" + Mathf.RoundToInt(Seconds).ToString();
-        Fuel.value = CarFuel;
         if (CarFuel <= 0)
         {
             Application.Quit();

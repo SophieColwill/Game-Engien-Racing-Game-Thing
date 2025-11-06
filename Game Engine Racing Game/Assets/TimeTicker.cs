@@ -4,12 +4,12 @@ public class TimeTicker : Observer
 {
     public override void Notify(Subject subject)
     {
-        Player.Seconds += Time.deltaTime;
+        Player.instance.Seconds += Time.deltaTime;
 
-        if (Player.Seconds >= 60)
+        if (Player.instance.Seconds >= 60)
         {
-            Player.Seconds -= 60;
-            Player.Minutes++;
+            Player.instance.Seconds -= 60;
+            Player.instance.Minutes++;
         }
     }
 }
