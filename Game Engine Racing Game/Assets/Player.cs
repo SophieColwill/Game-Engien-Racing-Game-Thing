@@ -9,7 +9,9 @@ public class Player : Subject
     public Path1State Path1;
     public Path2State Path2;
     public Path3State Path3;
-    int currentPath = 2;
+    [HideInInspector] public int currentPath = 2;
+
+    private Command closeGame, move_left, move_right;
 
     public float CarFuel
     {
@@ -42,6 +44,10 @@ public class Player : Subject
         Attach(gameObject.AddComponent<Fuel>());
         Attach(gameObject.AddComponent <TimeTicker>());
         Fuel.maxValue = 50;
+
+        closeGame = new CloseGameCommand();
+        move_left = new MoveLeftr();
+        move_right = new MoveRight();
     }
 
     // Update is called once per frame
@@ -56,23 +62,25 @@ public class Player : Subject
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            currentPath++;
-            if (currentPath == 4)
-            {
-                currentPath = 3;
-            }
+            move_right.Execute(this);
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            currentPath--;
-            if (currentPath == 0)
-            {
-                currentPath = 1;
-            }
+            move_left.Execute(this);
         }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            move_right.Execute(this);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            move_left.Execute(this);
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            closeGame.Execute(this);
         }
 
 
